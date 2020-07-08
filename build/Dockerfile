@@ -1,5 +1,9 @@
 FROM quay.io/operator-framework/ansible-operator:v0.17.2
 
+USER 0
+RUN pip3 install --no-cache-dir --ignore-installed netaddr
+USER 1001
+
 COPY requirements.yml ${HOME}/requirements.yml
 COPY ansible-role-requirements.yml ${HOME}/ansible-role-requirements.yml
 RUN ansible-galaxy role install -f -r ${HOME}/ansible-role-requirements.yml -p roles
