@@ -35,6 +35,41 @@ spec:
               value: "ansible-otc-operator"
             - name: ANSIBLE_GATHERING
               value: explicit
+            - name: OS_PROJECT_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-credentials
+                  key: OS_PROJECT_NAME
+            - name: OS_REGION_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-credentials
+                  key: OS_REGION_NAME
+            - name: OS_AUTH_URL
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-credentials
+                  key: OS_AUTH_URL
+            - name: OS_IDENTITY_API_VERSION
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-credentials
+                  key: OS_IDENTITY_API_VERSION
+            - name: OS_USER_DOMAIN_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-credentials
+                  key: OS_USER_DOMAIN_NAME
+            - name: OS_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-credentials
+                  key: OS_USERNAME
+            - name: OS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-credentials
+                  key: OS_PASSWORD
       volumes:
         - name: runner
           emptyDir: {}
