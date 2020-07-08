@@ -1,7 +1,7 @@
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
-  name: otcecs.ansible-otc.net
+  name: ansible-otc.net
 spec:
   group: ansible-otc.net
   names:
