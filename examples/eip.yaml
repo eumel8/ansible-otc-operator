@@ -1,0 +1,7 @@
+apiVersion: ansible-otc.net/v1
+kind: OtcEcs
+metadata:
+  name: otceip
+spec:
+  eip_bandwidth_name: "ansible-otc-operator"
+  localaction: "show"
