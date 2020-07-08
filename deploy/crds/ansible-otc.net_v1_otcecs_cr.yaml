@@ -24,13 +24,12 @@ spec:
   keypair_file: "/key-file/ansible-operator.key.pub"
   evs_scsi: false
   evs_multiattach: false
-  vms:
-    ansible-otc-operator:
-      secgroups: 
-        - "ansible-otc-operator"
-      ecs_publicip: "0.0.0.0"
-      eip_bandwidth_name: "ansible-otc-operator"
-      eip_bandwidth_size: "500"
+  secgroups: 
+    - "ansible-otc-operator"
+  ecs_publicip: "0.0.0.0"
+  public_ip_address: "0.0.0.0"
+  eip_bandwidth_name: "ansible-otc-operator"
+  eip_bandwidth_size: "500"
   securitygroups:
     ansible-otc-operator:
       - "ingress;IPv4;0;;;0.0.0.0/0"
