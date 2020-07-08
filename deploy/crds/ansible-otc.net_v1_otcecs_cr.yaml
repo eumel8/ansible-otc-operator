@@ -20,6 +20,7 @@ spec:
   ecs_ram: "2048"
   ecs_vcpus: "2"
   ecs_adminkey: "ansible-otc-operator"
+  keypair_file: "/key-file/ansible-operator.key.pub"
   evs_scsi: false
   evs_multiattach: false
   vms:

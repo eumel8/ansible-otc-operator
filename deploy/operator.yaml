@@ -16,12 +16,14 @@ spec:
       serviceAccountName: ansible-otc-operator
       containers:
         - name: ansible-otc-operator
-          # Replace this with the built image name
           image: "eumel8/ansible-otc-operator"
           imagePullPolicy: "Always"
           volumeMounts:
           - mountPath: /tmp/ansible-operator/runner
             name: runner
+          - name: key-file
+            mountPath: "/key-file"
+            readOnly: true
           env:
             - name: WATCH_NAMESPACE
               valueFrom:
@@ -73,3 +75,6 @@ spec:
       volumes:
         - name: runner
           emptyDir: {}
+        - name: key-file
+          secret:
+            secretName: key-file

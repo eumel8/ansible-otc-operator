@@ -6,6 +6,11 @@
     - operator_sdk.util
 
   roles:
-    # create VM
     - role: "otc_auth"
     - role: "otc_vpc"
+    - name: "otc_keypair"
+    - name: "otc_secgroup"
+    - name: "otc_subnet"
+    - name: "otc_eip"
+    - name: "otc_ecs"
+
