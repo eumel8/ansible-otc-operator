@@ -8,3 +8,4 @@
   roles:
     # create VM
     - role: "otc_auth"
+    - role: "otc_vpc"

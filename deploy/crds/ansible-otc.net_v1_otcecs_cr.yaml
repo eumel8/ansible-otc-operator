@@ -33,4 +33,4 @@ spec:
     ansible-otc-operator:
       - "ingress;IPv4;0;;;0.0.0.0/0"
       - "egress;IPv4;0;;;0.0.0.0/0"
-  localaction: "create"
+  localaction: "list"
