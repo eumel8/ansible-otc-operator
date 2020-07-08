@@ -5,13 +5,6 @@
     - community.kubernetes
     - operator_sdk.util
 
-  tasks:
-    - import_role:
-        name: "otcecs"
+  roles:
+    # create VM
     - role: "otc_auth"
-#    - role: "otc_vpc"
-#    - role: "otc_subnet"
-#    - role: "otc_secgroup"
-#    - role: "otc_keypair"
-#    - role: "otc_eip"
-#    - role: "otc_ecs"
