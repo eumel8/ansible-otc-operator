@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  gather_facts: no
+  collections:
+    - community.kubernetes
+    - operator_sdk.util
+    - eumel8.otc_auth
+    - eumel8.otc_vpc
+    - eumel8.otc_ecs
+    - eumel8.otc_subnet
+    - eumel8.otc_secgroup
+    - eumel8.otc_keypair
+    - eumel8.otc_eip
+
+  tasks:
+    - import_role:
+        name: "otcecs"
+    - role: "otc_auth"
+    - role: "otc_vpc"
+    - role: "otc_subnet"
+    - role: "otc_secgroup"
+    - role: "otc_keypair"
+    - role: "otc_eip"
+    - role: "otc_ecs"

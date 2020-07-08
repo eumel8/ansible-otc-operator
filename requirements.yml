@@ -1,0 +1,12 @@
+---
+collections:
+  - name: community.kubernetes
+    version: "<1.0.0"
+  - operator_sdk.util
+  - eumel8.otc_auth
+  - eumel8.otc_vpc
+  - eumel8.otc_ecs
+  - eumel8.otc_subnet
+  - eumel8.otc_secgroup
+  - eumel8.otc_keypair
+  - eumel8.otc_eip

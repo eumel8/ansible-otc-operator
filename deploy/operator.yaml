@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ansible-otc-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: ansible-otc-operator
+  template:
+    metadata:
+      labels:
+        name: ansible-otc-operator
+    spec:
+      serviceAccountName: ansible-otc-operator
+      containers:
+        - name: ansible-otc-operator
+          # Replace this with the built image name
+          image: "eumel8/ansible-otc-operator"
+          imagePullPolicy: "Always"
+          volumeMounts:
+          - mountPath: /tmp/ansible-operator/runner
+            name: runner
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "ansible-otc-operator"
+            - name: ANSIBLE_GATHERING
+              value: explicit
+      volumes:
+        - name: runner
+          emptyDir: {}
