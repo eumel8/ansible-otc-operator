@@ -34,7 +34,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
-              value: "ansible-otc-operator"
+              value: "ansible-otc-operator-secgroup"
             - name: ANSIBLE_GATHERING
               value: explicit
             - name: OS_PROJECT_NAME
