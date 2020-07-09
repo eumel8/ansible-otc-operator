@@ -1,2 +1,3 @@
 create-secret.sh
 ansible-operator.*
+roles
