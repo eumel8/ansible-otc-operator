@@ -134,7 +134,7 @@ status:
 
 This is an example how to deploy an ECS in OTC with all required resources. 
 
-![CRD API Architecture](ansibe-otc operator.png)
+![ansibe-otc-operator.png](ansibe-otc-operator.png)
 
 
 CRDs are expand to the services
