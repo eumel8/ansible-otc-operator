@@ -48,7 +48,12 @@ rules:
 - apiGroups:
   - apps
   resourceNames:
-  - ansible-otc-operator
+  - ansible-otc-operator-vpc
+  - ansible-otc-operator-ecs
+  - ansible-otc-operator-eip
+  - ansible-otc-operator-keypair
+  - ansible-otc-operator-subnet
+  - ansible-otc-operator-secgroup
   resources:
   - deployments/finalizers
   verbs:

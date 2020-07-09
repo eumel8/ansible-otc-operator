@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ansible-otc-operator-ecs
+  name: ansible-otc-operator-eip
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: ansible-otc-operator-ecs
+      name: ansible-otc-operator-eip
   template:
     metadata:
       labels:
-        name: ansible-otc-operator-ecs
+        name: ansible-otc-operator-eip
     spec:
       serviceAccountName: ansible-otc-operator
       containers:
-        - name: ansible-otc-operator-ecs
-          image: "eumel8/ansible-otc-operator-ecs"
+        - name: ansible-otc-operator-eip
+          image: "eumel8/ansible-otc-operator-eip"
           imagePullPolicy: "Always"
           volumeMounts:
           - mountPath: /tmp/ansible-operator/runner

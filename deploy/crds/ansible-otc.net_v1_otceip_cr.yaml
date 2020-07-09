@@ -1,0 +1,35 @@
+apiVersion: ansible-otc.net/v1
+kind: OtcEip
+metadata:
+  name: otceip
+spec:
+  ecs_name: "ansible-otc-operator"
+  image_name: "Standard_Ubuntu_18.04_latest"
+  availability_zone: "eu-de-01"
+  evs_availability_zone: "eu-de-01"
+  vpc_name: "ansible-otc-operator"
+  vpc_net: "10.0.0.0/16"
+  subnet_name: "ansible-otc-operator"
+  subnet_net: "10.0.0.0/26"
+  subnet_gateway: "10.0.0.1"
+  subnet_dhcp_enable: "true"
+  subnet_primary_dns: "100.125.4.25"
+  subnet_secondary_dns: "8.8.8.8"
+  secgroups: "ansible-otc-operator"
+  ecs_volumetype: "SATA"
+  ecs_volumesize: 12
+  ecs_ram: "4096"
+  ecs_vcpus: "2"
+  ecs_adminkey: "ansible-otc-operator"
+  keypair_file: "/key-file/ansible-operator.key.pub"
+  evs_scsi: false
+  evs_multiattach: false
+  ecs_publicip: "0.0.0.0"
+  public_ip_address: "0.0.0.0"
+  eip_bandwidth_name: "ansible-otc-operator"
+  eip_bandwidth_size: "500"
+  securitygroups:
+    ansible-otc-operator:
+      - "ingress;IPv4;0;;;0.0.0.0/0"
+      - "egress;IPv4;0;;;0.0.0.0/0"
+  localaction: "list"
