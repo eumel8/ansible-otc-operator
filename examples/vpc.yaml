@@ -1,0 +1,6 @@
+apiVersion: otcvpc.ansible-otc.net/v1
+kind: OtcVpc
+metadata:
+  name: otcvpc
+spec:
+  localaction: "list"
