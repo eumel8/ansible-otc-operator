@@ -4,7 +4,6 @@
   collections:
     - community.kubernetes
     - operator_sdk.util
-
   roles:
     - role: "otc_auth"
     - role: "otc_vpc"
@@ -12,5 +11,16 @@
     - name: "otc_secgroup"
     - name: "otc_subnet"
     - name: "otc_eip"
-    - name: "otc_ecs"
 
+- hosts: localhost
+  gather_facts: no
+  collections:
+    - community.kubernetes
+    - operator_sdk.util
+
+  vars:
+    secgroup_name: ""
+
+  roles:
+    - role: "otc_auth"
+    - name: "otc_ecs"
