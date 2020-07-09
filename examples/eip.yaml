@@ -4,4 +4,6 @@ metadata:
   name: otceip
 spec:
   eip_bandwidth_name: "ansible-otc-operator"
-  localaction: "show"
+  public_ip_address: "0.0.0.0"
+  eip_bandwidth_size: 1000
+  localaction: "create"

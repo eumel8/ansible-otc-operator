@@ -132,7 +132,21 @@ status:
 
 ```
 
-This is an example how to deploy an ECS in OTC with all required resources
+This is an example how to deploy an ECS in OTC with all required resources. CRDs are expand to the services
+
+* vpc
+
+* subnet
+
+* secgroup
+
+* eip
+
+* keypair
+
+* ecs
+
+Configuration variables like in [otc\_vpc](https://github.com/eumel8/otc_vpc), [otc\_ecs](https://github.com/eumel8/otc_ecs), [and so on](https://ansible-otc.readthedocs.io).
 
 
 Prerequisites:
@@ -176,10 +190,11 @@ kubectl -n ansible create secret generic key-file --from-file=ansible-operator.k
 Apply the Custom Resource definitions
 
 ```
-kubectl -n ansible apply -f deploy/crds/
+kubectl -n ansible apply -f deploy/crds/*crd.yaml
+kubectl -n ansible apply -f deploy/crds/*cr.yaml
 ```
 
-Apply the Operator:
+Apply the Operators:
 
 ```
 kubectl -n ansible apply -f deploy/
@@ -189,33 +204,57 @@ Check installation
 
 ```
 # kubectl -n ansible get all
-NAME                                        READY   STATUS    RESTARTS   AGE
-pod/ansible-otc-operator-69d4b7f756-5wbkz   1/1     Running   0          11m
+NAME                                                READY   STATUS    RESTARTS   AGE
+pod/ansible-otc-operator-secgroup-9f46996d6-s7shc   1/1     Running   0          46m
+pod/ansible-otc-operator-keypair-69fdf58f5b-mw2vx   1/1     Running   0          46m
+pod/ansible-otc-operator-subnet-7f8777b6-4dx8b      1/1     Running   0          46m
+pod/ansible-otc-operator-eip-758df7bf4d-g8kvf       1/1     Running   0          46m
+pod/ansible-otc-operator-vpc-55f8dbd9d4-7h9bz       1/1     Running   0          46m
+pod/ansible-otc-operator-ecs-57b4bb87f7-82lsv       1/1     Running   0          30m
 
-NAME                                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
-service/ansible-otc-operator-metrics   ClusterIP   10.43.223.108   <none>        8383/TCP,8686/TCP   11m
+NAME                                            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+service/ansible-otc-operatoro-ecs-metrics       ClusterIP   10.43.138.229   <none>        8383/TCP,8686/TCP   46m
+service/ansible-otc-operator-subnet-metrics     ClusterIP   10.43.70.120    <none>        8383/TCP,8686/TCP   46m
+service/ansible-otc-operator-secgroup-metrics   ClusterIP   10.43.211.139   <none>        8383/TCP,8686/TCP   46m
+service/ansible-otc-operator-eip-metrics        ClusterIP   10.43.131.11    <none>        8383/TCP,8686/TCP   46m
+service/ansible-otc-operator-keypair-metrics    ClusterIP   10.43.251.77    <none>        8383/TCP,8686/TCP   46m
+service/ansible-otc-operator-vpc-metrics        ClusterIP   10.43.6.86      <none>        8383/TCP,8686/TCP   46m
 
-NAME                                   READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/ansible-otc-operator   1/1     1            1           11m
+NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/ansible-otc-operator-secgroup   1/1     1            1           46m
+deployment.apps/ansible-otc-operator-keypair    1/1     1            1           46m
+deployment.apps/ansible-otc-operator-subnet     1/1     1            1           46m
+deployment.apps/ansible-otc-operator-eip        1/1     1            1           46m
+deployment.apps/ansible-otc-operator-vpc        1/1     1            1           46m
+deployment.apps/ansible-otc-operator-ecs        1/1     1            1           46m
 
-NAME                                              DESIRED   CURRENT   READY   AGE
-replicaset.apps/ansible-otc-operator-69d4b7f756   1         1         1       11m
+NAME                                                      DESIRED   CURRENT   READY   AGE
+replicaset.apps/ansible-otc-operator-secgroup-9f46996d6   1         1         1       46m
+replicaset.apps/ansible-otc-operator-keypair-69fdf58f5b   1         1         1       46m
+replicaset.apps/ansible-otc-operator-subnet-7f8777b6      1         1         1       46m
+replicaset.apps/ansible-otc-operator-eip-758df7bf4d       1         1         1       46m
+replicaset.apps/ansible-otc-operator-vpc-55f8dbd9d4       1         1         1       46m
+replicaset.apps/ansible-otc-operator-ecs-57b4bb87f7       1         1         1       46m
+
 ```
 
-The first job is already runnung in the ansible-otc-operator POD. It's a simple list of resource, so you can check connectivity.
+The first job is already runnung in the ansible-otc-operator POD. It's a simple list of resource, so you can check connectivity. Normaly a description of the resources will made in the CRD, so you have a kind of API description.
 
-Next is a full example to deploy a ECS:
+Next is a full example to deploy a ECS. This will require VPC,Subnet,Secgroup, Keypair, and EIP. Adjust in example/ecs.yaml and ensure the resources are created before. Here only as example create of EIP:
+
+```
+kubectl -n ansible apply -f examples/eip.yaml
+```
+
+You can show the created resource. A `kubectl -n ansible patch otceips.otceip.ansible-otc.net otceip -p '{"spec": {"localaction": "show"}}'` will not work due the missing patch possibilty, so you can `kubectl -n ansible edit otceips.otceip.ansible-otc.net otceip` and change `localaction: create` to `localaction: show`. The output is in the corresponding EIP Operator POD.
+The ip-address can you put in public_ip value of examples/ecs.yaml to use this ip-address in the next deployment:
+
 
 ```
 kubectl -n ansible apply -f examples/ecs.yaml
 ```
 
-You can check the output in Operator POD log
-To get the EIP of the ECS you can run another task
-
-```
-kubectl -n ansible apply -f examples/eip.yaml
-```
+You can check the output in ECS Operator POD log
 
 Login into ECS
 

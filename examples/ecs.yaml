@@ -19,7 +19,7 @@ spec:
   secgroups: "ansible-otc-operator"
   ecs_volumetype: "SATA"
   ecs_volumesize: 12
-  ecs_ram: "2048"
+  ecs_ram: "4096"
   ecs_vcpus: "2"
   ecs_adminkey: "ansible-otc-operator"
   keypair_file: "/key-file/ansible-operator.key.pub"
