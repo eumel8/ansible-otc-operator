@@ -1,5 +1,5 @@
-apiVersion: ansible-otc.net/v1
-kind: OtcEcs
+apiVersion: otceip.ansible-otc.net/v1
+kind: OtcEip
 metadata:
   name: otceip
 spec:
