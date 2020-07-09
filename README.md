@@ -1,7 +1,13 @@
 K8S Operator for ansible-otc
 ============================
 
-This is the Ansible based [K8S Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) for [ansible-otc](github.com/eumel8/ansible-otc). Following the [Operator Quickstart](https://sdk.operatorframework.io/docs/ansible/quickstart/) it's easy to generate a Ansible based Operator for Kubernetes. The approach is to run Ansible inside Kubernetes and provide resource definitions in Kubernetes API back to the user like this:
+This is the Ansible based [K8S Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) for [ansible-otc](github.com/eumel8/ansible-otc). Following the [Operator Quickstart](https://sdk.operatorframework.io/docs/ansible/quickstart/) it's easy to generate a Ansible based Operator for Kubernetes:
+
+```
+operator-sdk new ansible-otc-operator --git-init --type ansible --generate-playbook --kind OtcEcs --api-version ansible-otc.net/v1
+```
+
+This will generate most of the content in this repo. The approach is to run Ansible inside Kubernetes and provide resource definitions in Kubernetes API back to the user like this:
 
 ```
 kubectl -n ansible get otcecs
