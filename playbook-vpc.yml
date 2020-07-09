@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  collections:
+    - community.kubernetes
+    - operator_sdk.util
+  roles:
+    - role: "otc_auth"
+    - role: "otc_vpc"
