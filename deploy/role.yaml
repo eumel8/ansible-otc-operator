@@ -72,7 +72,12 @@ rules:
   verbs:
   - get
 - apiGroups:
-  - ansible-otc.net
+  - otcecs.ansible-otc.net
+  - otceip.ansible-otc.net
+  - otcvpc.ansible-otc.net
+  - otcsubnet.ansible-otc.net
+  - otcsecgroup.ansible-otc.net
+  - otckeypair.ansible-otc.net
   resources:
   - '*'
   verbs:
