@@ -1,4 +1,4 @@
-apiVersion: ansible-otc.net/v1
+apiVersion: otcvpc.ansible-otc.net/v1
 kind: OtcVpc
 metadata:
   name: otcvpc

@@ -1,4 +1,4 @@
-apiVersion: ansible-otc.net/v1
+apiVersion: otcsubnet.ansible-otc.net/v1
 kind: OtcSubnet
 metadata:
   name: otcsubnet

@@ -1,4 +1,4 @@
-apiVersion: ansible-otc.net/v1
+apiVersion: otcecs.ansible-otc.net/v1
 kind: OtcEcs
 metadata:
   name: otcecs
