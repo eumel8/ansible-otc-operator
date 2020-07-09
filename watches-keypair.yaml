@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: otckeypair.ansible-otc.net
+  kind: OtcKeypair
+  playbook: playbook.yml

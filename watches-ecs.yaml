@@ -1,5 +1,5 @@
 ---
 - version: v1
-  group: ansible-otc.net
+  group: otcecs.ansible-otc.net
   kind: OtcEcs
   playbook: playbook.yml

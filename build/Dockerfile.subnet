@@ -10,6 +10,6 @@ RUN ansible-galaxy role install -f -r ${HOME}/ansible-role-requirements.yml -p r
 RUN ansible-galaxy collection install -r ${HOME}/requirements.yml \
  && chmod -R ug+rwx ${HOME}/.ansible
 
-COPY watches.yaml ${HOME}/watches.yaml
+COPY watches-subnet.yaml ${HOME}/watches.yaml
 
 COPY playbook-subnet.yml ${HOME}/playbook.yml

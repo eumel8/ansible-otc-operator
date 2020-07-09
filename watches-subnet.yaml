@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: otcsubnet.ansible-otc.net
+  kind: OtcSubnet
+  playbook: playbook.yml

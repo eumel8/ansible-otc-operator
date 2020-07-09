@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: otcvpc.ansible-otc.net
+  kind: OtcVpc
+  playbook: playbook.yml
