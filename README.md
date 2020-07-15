@@ -177,13 +177,13 @@ Create a secret with OTC credentials
 
 ```
 kubectl create secret generic cloud-credentials -n ansible \
-  --from-literal=OS\_PROJECT\_NAME=eu-de \
-  --from-literal=OS\_REGION\_NAME=eu-de \
-  --from-literal=OS\_AUTH\_URL=https://iam.eu-de.otc.t-systems.com:443/v3 \
-  --from-literal=OS\_IDENTITY\_API\_VERSION=3 \
-  --from-literal=OS\_USER\_DOMAIN\_NAME=OTC-EU-DE-xxxxxxxxxxxxxxxxx \
-  --from-literal=OS\_USERNAME=xxxxxxx \
-  --from-literal=OS\_PASSWORD=xxxxxxx
+  --from-literal=OS_PROJECT_NAME=eu-de \
+  --from-literal=OS_REGION_NAME=eu-de \
+  --from-literal=OS_AUTH_URL=https://iam.eu-de.otc.t-systems.com:443/v3 \
+  --from-literal=OS_IDENTITY_API_VERSION=3 \
+  --from-literal=OS_USER_DOMAIN_NAME=OTC-EU-DE-xxxxxxxxxxxxxxxxx \
+  --from-literal=OS_USERNAME=xxxxxxx \
+  --from-literal=OS_PASSWORD=xxxxxxx
 ```
 
 Create a secret with the ssh public key
