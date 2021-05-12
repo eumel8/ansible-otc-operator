@@ -1,0 +1,8 @@
+apiVersion: otcrds.ansible-otc.net/v1
+kind: OtcRds
+metadata:
+  name: otcrdslist
+  annotations:
+    ansible.sdk.operatorframework.io/verbosity: "7"
+spec:
+  localaction: "list"

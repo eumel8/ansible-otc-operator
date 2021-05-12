@@ -1,0 +1,24 @@
+apiVersion: otcrds.ansible-otc.net/v1
+kind: OtcRds
+metadata:
+  name: otcrds
+spec:
+  rds_name: ""
+  rds_availability_zone: ""
+  rds_kmsKeyId: ""
+  rds_secgroup_name: ""
+  rds_subnet_name: ""
+  rds_vpc_name: ""
+  rds_type: ""
+  rds_version: ""
+  rds_root_password: ""
+  rds_port:
+  rds_ram:
+  rds_volume_type: ""
+  rds_volume_size:
+  rds_backup_time: ""
+  rds_backup_days:
+  rds_ha_enabled:
+  rds_ha_replication_mode: ""
+  rds_parametergroup:
+  localaction: "list"

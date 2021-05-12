@@ -54,6 +54,7 @@ rules:
   - ansible-otc-operator-keypair
   - ansible-otc-operator-subnet
   - ansible-otc-operator-secgroup
+  - ansible-otc-operator-rds
   resources:
   - deployments/finalizers
   verbs:
@@ -73,6 +74,7 @@ rules:
   - get
 - apiGroups:
   - otcecs.ansible-otc.net
+  - otcrds.ansible-otc.net
   - otceip.ansible-otc.net
   - otcvpc.ansible-otc.net
   - otcsubnet.ansible-otc.net
