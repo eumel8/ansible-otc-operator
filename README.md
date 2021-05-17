@@ -151,6 +151,8 @@ CRDs are expand to the services
 
 * ecs
 
+* rds
+
 Configuration variables like in [otc\_vpc](https://github.com/eumel8/otc_vpc), [otc\_ecs](https://github.com/eumel8/otc_ecs), [and so on](https://ansible-otc.readthedocs.io).
 
 
