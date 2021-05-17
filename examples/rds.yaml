@@ -1,0 +1,28 @@
+apiVersion: otcrds.ansible-otc.net/v1
+kind: OtcRds
+metadata:
+  name: otcrds01
+  annotations:
+    ansible.sdk.operatorframework.io/verbosity: "7"
+spec:
+  localaction: "create"
+  rds_name: "otcrds01"
+  rds_availability_zone: "eu-de-03"
+  rds_kmsKeyId: "56002486-b6e5-49be-a3c7-5a3e64d05689"
+  rds_secgroup_name: "ansible-test01"
+  rds_subnet_name: "ansible-subnet01"
+  rds_vpc_name: "ansible-vpc01"
+  rds_type: "MySQL"
+  rds_version: "5.7"
+  rds_root_password: "Test123!"
+  rds_port: "3306"
+  rds_ram: "4"
+  rds_volume_type: "COMMON"
+  rds_volume_size: "110"
+  rds_backup_time: "01:00-02:00"
+  rds_backup_days: "0"
+  rds_ha_enabled: "false"
+  rds_ha_replication_mode: "semisync"
+  rds_parametergroup:
+      max_connections: "2000"
+      autocommit: "OFF"

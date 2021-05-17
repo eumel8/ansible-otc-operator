@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: otcrds.ansible-otc.net
+  kind: OtcRds
+  playbook: playbook.yml

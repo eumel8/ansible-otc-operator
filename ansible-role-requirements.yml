@@ -12,3 +12,5 @@
   src: eumel8.otc_eip
 - name: otc_vpc
   src: eumel8.otc_vpc
+- name: otc_rds
+  src: eumel8.otc_rds
